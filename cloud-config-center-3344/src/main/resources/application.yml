@@ -15,7 +15,22 @@ spring:
       label: master  #读取分支
 
 
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+
+
+##rabbitmq相关配置，暴露bus刷新配置的站点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
