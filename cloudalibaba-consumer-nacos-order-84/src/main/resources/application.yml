@@ -1,0 +1,21 @@
+server:
+  port: 84
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery: #Nacos注册中心地址
+        server-addr: 39.105.30.146:8848
+    sentinel:
+      transport: #dashboard地址
+        dashboard: localhost:8080
+        port: 8719  #默认端口，如果被占用则从8719依次+1扫描
+
+service-url:
+  nacos-user-service: http://cloudalibaba-provider-payment
+
+###激活Sentinel对openFeign的支持
+feign:
+  sentinel:
+    enabled: true
