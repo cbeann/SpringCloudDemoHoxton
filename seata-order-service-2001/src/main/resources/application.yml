@@ -1,0 +1,28 @@
+server:
+  port: 2001
+spring:
+  application:
+    name: seata-order-service
+  cloud:
+    nacos:
+      discovery: #Nacos注册中心地址
+        server-addr: 39.105.30.146:8848
+    alibaba:
+      seata:
+        tx-service-group: seataserver #和seataserver的配置文件中file.conf的service.vgroupMapping.my_test_tx_group一致
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/seata_order
+    username: root
+    password: 123456
+#    type: com.alibaba.druid.pool.DruidDataSource
+feign:
+  hystrix:
+    enabled: true
+
+logging:
+  level:
+    io:
+      seata: info
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
